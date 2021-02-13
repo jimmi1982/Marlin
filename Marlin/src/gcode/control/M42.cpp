@@ -20,9 +20,12 @@
  *
  */
 
+#include "../../inc/MarlinConfig.h"
+
+#if ENABLED(DIRECT_PIN_CONTROL)
+
 #include "../gcode.h"
 #include "../../MarlinCore.h" // for pin_is_protected
-#include "../../inc/MarlinConfig.h"
 
 #if FAN_COUNT > 0
   #include "../../module/temperature.h"
@@ -97,3 +100,5 @@ void GcodeSuite::M42() {
   extDigitalWrite(pin, pin_status);
   analogWrite(pin, pin_status);
 }
+
+#endif // DIRECT_PIN_CONTROL

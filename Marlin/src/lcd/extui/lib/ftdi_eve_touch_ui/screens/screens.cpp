@@ -62,8 +62,14 @@ SCREEN_TABLE {
   DECL_SCREEN(StepperCurrentScreen),
   DECL_SCREEN(StepperBumpSensitivityScreen),
 #endif
-#if HAS_BED_PROBE
-  DECL_SCREEN(ZOffsetScreen),
+#if HAS_LEVELING
+  DECL_SCREEN(LevelingMenu),
+  #if HAS_BED_PROBE
+    DECL_SCREEN(ZOffsetScreen),
+  #endif
+  #if HAS_MESH
+    DECL_SCREEN(BedMeshScreen),
+  #endif
 #endif
 #if HOTENDS > 1
   DECL_SCREEN(NozzleOffsetScreen),
@@ -97,7 +103,9 @@ SCREEN_TABLE {
   DECL_SCREEN(InterfaceSettingsScreen),
   DECL_SCREEN(InterfaceSoundsScreen),
   DECL_SCREEN(LockScreen),
+#if ENABLED(SDSUPPORT)
   DECL_SCREEN(FilesScreen),
+#endif
   DECL_SCREEN(EndstopStatesScreen),
 #if ENABLED(TOUCH_UI_LULZBOT_BIO)
   DECL_SCREEN(BioPrintingDialogBox),

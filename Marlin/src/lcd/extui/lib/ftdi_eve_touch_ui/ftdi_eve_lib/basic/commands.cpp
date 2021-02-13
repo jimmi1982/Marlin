@@ -1064,11 +1064,11 @@ void CLCD::init() {
 
   host_cmd(FTDI::ACTIVE, 0);                        // Activate the System Clock
 
-  /* read the device-id until it returns 0x7c or times out, should take less than 150ms */
+  /* read the device-id until it returns 0x7C or times out, should take less than 150ms */
   uint8_t counter;
   for(counter = 0; counter < 250; counter++) {
    uint8_t device_id = mem_read_8(REG::ID);            // Read Device ID, Should Be 0x7C;
-   if (device_id == 0x7c) {
+   if (device_id == 0x7C) {
      #if ENABLED(TOUCH_UI_DEBUG)
        SERIAL_ECHO_MSG("FTDI chip initialized ");
      #endif

@@ -25,7 +25,7 @@
  * HJC2560-C Rev2.x pin assignments
  */
 
-#ifndef __AVR_ATmega2560__
+#if NOT_TARGET(__AVR_ATmega2560__)
   #error "Oops! Select 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
 #endif
 
@@ -120,7 +120,7 @@
 //
 // LCD / Controller
 //
-#if HAS_SPI_LCD
+#if HAS_WIRED_LCD
 
   #define BEEPER_PIN                          18
 
@@ -167,4 +167,4 @@
 
   #endif // !NEWPANEL
 
-#endif // HAS_SPI_LCD
+#endif // HAS_WIRED_LCD
